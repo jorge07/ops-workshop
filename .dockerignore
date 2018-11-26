@@ -1,0 +1,5 @@
+.git/
+.idea/
+node_modules/
+Readme.md
+dive.log
