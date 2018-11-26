@@ -1,0 +1,10 @@
+replicaCount: 1
+
+image:
+  repository: app
+  tag: hello
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80

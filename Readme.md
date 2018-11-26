@@ -36,3 +36,33 @@ Edit deploy to update image tag
 ## Remove 
 
 `kubectl delete -f deploy/`
+
+# Helming
+
+```bash
+kubectl delete -f deploy
+cd deploy
+helm create chart
+cd chart
+ls
+helm template .
+```
+
+`helm template --set image.tag=demo .`
+
+## Deploy with helm
+
+`helm init`
+
+`kubectl describe deploy tiller-deploy -n kube-system`
+`kubectl get po -l app=helm -n kube-system`
+
+`helm install --name my-app .`
+`helm ls`
+`helm history my-app`
+
+## Update deployment
+
+`helm upgrade my-app --set image.tag=hello .`
+`helm upgrade my-app -f ../dev/dev.yaml .`
+
