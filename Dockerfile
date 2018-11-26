@@ -15,4 +15,6 @@ COPY --from=builder /build .
 
 ADD . .
 
+EXPOSE 3000
+
 CMD ["yarn", "start"]
