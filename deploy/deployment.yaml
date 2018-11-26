@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: app:hello-niggers
+        image: app:hello
         imagePullPolicy: IfNotPresent # This is needed for minikube but useful to avoid unnecessary pulls
         ports:
         - containerPort: 3000
