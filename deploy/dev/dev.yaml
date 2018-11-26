@@ -1,2 +1,7 @@
 image:
   tag: demo
+
+redis:
+  enabled: true
+  rbac:
+    create: true

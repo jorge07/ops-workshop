@@ -66,3 +66,28 @@ helm template .
 `helm upgrade my-app --set image.tag=hello .`
 `helm upgrade my-app -f ../dev/dev.yaml .`
 
+# Working with helm dependencies
+
+Create `requirement.yaml`
+
+Update deps:
+
+`helm dependency update`
+
+Deploy our redis cluster:
+
+`helm upgrade my-app -f deploy/dev/dev.yaml deploy/chart`
+
+# Pro Tip:
+
+Kubernetes mount secrets and config maps as volumes. 
+It means changing a those, your APP values will not change unless you deploy again.
+Add a checksum of the file to trigger a deploy each time it change.
+```yaml
+annotations:
+  checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+```
+
+# Delete all
+
+`helm delete --purge my-app`
